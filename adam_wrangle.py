@@ -2,6 +2,7 @@ import os
 import pandas as pd
 
 from env import get_connection
+from sklearn.model_selection import train_test_split
 
 
 def get_grades():
@@ -39,3 +40,14 @@ def clean_grades():
     df.exam3 = df.exam3.astype('int')
     
     return df    
+
+
+def train_val_test(df, seed = 42):
+    
+    train, val_test = train_test_split(df, train_size = 0.7,
+                                       random_state = seed)
+    
+    val, test = train_test_split(val_test, train_size = 0.5,
+                                 random_state = seed)
+    
+    return train, val, test
