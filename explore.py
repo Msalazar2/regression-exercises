@@ -10,7 +10,7 @@ from scipy import stats
 def plot_variable_pairs(df):
     
     sns.set(style="ticks")
-    sns.pairplot(df.sample(5_000), kind ="scatter", corner = True)
+    sns.pairplot(df.sample(5_000), kind ="reg", corner = True)
     plt.show()
 
 
@@ -52,8 +52,8 @@ def spear_test(df, continuous, continuous2):
 
     if p < a:
 
-        print('Reject the null, There is a correlation')
+        print('Conclusion: Reject the null, There is a correlation')
 
     else:
 
-        print('Fail to reject the null, There is not a correlation')
+        print('Conclusion: Fail to reject the null, There is not a correlation')
