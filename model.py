@@ -1,3 +1,8 @@
+from sklearn.metrics import mean_squared_error
+from math import sqrt
+
+
+
 def train_model(model, X_train, y_train, X_val, y_val):
     
     model.fit(X_train, y_train)
@@ -14,3 +19,9 @@ def train_model(model, X_train, y_train, X_val, y_val):
     print(f'The validate RMSE is {val_rmse}.')
     
     return model
+
+
+
+def eval_model(y_actual, y_hat):
+    
+    return sqrt(mean_squared_error(y_actual, y_hat))
